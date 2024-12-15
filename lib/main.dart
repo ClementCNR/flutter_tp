@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -123,3 +125,54 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+// void main() {
+//   runApp(const MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return RepositoryProvider(
+//       create: (context) => ProductsRepository(
+//         remoteDataSource: FakeDataSource(),
+//         localProductsDataSource: FakeLocalProductsDataSource(),
+//       ),
+//       child: MultiBlocProvider(
+//         providers: [
+//           BlocProvider(
+//             create: (context) => ProductsBloc(
+//               productsRepository: context.read<ProductsRepository>(),
+//             ),
+//           ),
+//           BlocProvider(
+//             create: (context) => CartBloc(),
+//           ),
+//         ],
+//         child: MaterialApp(
+//           debugShowCheckedModeBanner: false,
+//           routes: {
+//             '/': (context) => const ProductsScreen(),
+//             '/cartScreen': (context) => const CartScreen(),
+//           },
+//           onGenerateRoute: (routeSettings) {
+//             Widget screen = Container(color: Colors.pink);
+//             final argument = routeSettings.arguments;
+//             switch (routeSettings.name) {
+//               case 'productDetail':
+//                 if (argument is Product) {
+//                   screen = ProductDetailScreen(product: argument);
+//                 }
+//                 break;
+//             }
+//
+//             return MaterialPageRoute(builder: (context) => screen);
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
